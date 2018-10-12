@@ -4,19 +4,10 @@
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+  width: 3vw;
+  margin-right: 1vw;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
 
 .App-link {
   color: #61dafb;
@@ -29,4 +20,23 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+.Navbar-logo{
+  width: 3vw;
+  margin-right: 1vw;
+}
+
+.Home-section-1{
+  height: 90vh;
+  background-image: url("https://www.digitalpulse.pwc.com.au/wp-content/uploads/2017/09/Using-science-fiction-to-explore-business-innovation-2100x1040.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.Home-section-1 h1{
+  color:white;
+  font-size: 3rem;
+  text-shadow: 5px 5px 5px black;
 }
