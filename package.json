@@ -5,6 +5,7 @@
   "dependencies": {
     "antd": "^3.10.0",
     "axios": "^0.18.0",
+    "owl.carousel": "^2.3.4",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-router-dom": "^4.3.1",

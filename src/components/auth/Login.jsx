@@ -19,13 +19,11 @@ class Login extends Component{
         axios.post(url, auth)
         .then(res=>{
             console.log(res)
-            toastr.success("Te logueate!")
+            toastr.success("Has iniciado sesión")
             localStorage.setItem('user', JSON.stringify(res.data.user))
             localStorage.setItem('token', res.data.token)
             this.setState({loading:false})
-            const bonito = this.props.history
-            bonito.push('/profile')
-
+            this.props.history.push('/profile')
         })
         .catch(e=>{
             toastr.error(e.message,"Error al enviar petición")
@@ -54,7 +52,7 @@ class Login extends Component{
                     type="email"
                     onChange={this.onChange}
                     value={auth.email}
-                    placeholder="Tu correo" 
+                    placeholder="ripley@weyland-yutani.com..." 
                     />    
                 </p> 
                 <p>
@@ -63,7 +61,7 @@ class Login extends Component{
                     type="password"
                     onChange={this.onChange}
                     value={auth.password}
-                    placeholder="Tu Password" 
+                    placeholder="*********" 
                     />    
                 </p>   
                 <Button loading={loading} type="primary" htmlType="submit" >Inicia sesión</Button>

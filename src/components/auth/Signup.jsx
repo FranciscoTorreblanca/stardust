@@ -6,7 +6,7 @@ import axios from 'axios'
 class Signup extends Component{
 
     state = {
-        signup:{username:"pollollon"},
+        signup:{},
         loading:false
     }
 
@@ -22,28 +22,29 @@ class Signup extends Component{
         e.preventDefault()
         const {signup} = this.state
         if(signup.password !== signup.password2) {
-            return toastr.error('Escribe bien hijo!')
+            return toastr.error('Las contraseñas no coinciden')
         }
         axios.post('http://localhost:3000/signup', signup)
         .then(user=>{
             console.log(user)
-            toastr.success("hey! lo lograte!")
+            toastr.success("Registro exitoso")
+            this.props.history.push("/profile")
         })
-        .catch(e=>toastr.error("No pitufa"))
+        .catch(e=>toastr.error(e,"Error al intentar registrar"))
     }
 
     render(){
         const {signup, loading} = this.state
         return(
-            <form onSubmit={this.createUser} style={{width:600, margin:"0 auto", padding:20}}>
-                <h2>Date de alta mijo</h2>
+            <form onSubmit={this.createUser} className="Signup">
+                <h2>Registrarse</h2>
                 <p>
                     <Input 
                         name="username"
                         type="text"
                         onChange={this.onChange}
                         value={signup.username}
-                        placeholder="Tu nombre de usuario" 
+                        placeholder="Nombre de usuario" 
                     />
                     
                 </p>
@@ -53,7 +54,7 @@ class Signup extends Component{
                     type="email"
                     onChange={this.onChange}
                     value={signup.email}
-                    placeholder="Tu correo" 
+                    placeholder="Correo electrónico" 
                     />    
                 </p> 
                 <p>
@@ -62,7 +63,7 @@ class Signup extends Component{
                     type="password"
                     onChange={this.onChange}
                     value={signup.password}
-                    placeholder="Tu Password" 
+                    placeholder="Password" 
                     />    
                 </p>  
                 <p>
@@ -71,7 +72,7 @@ class Signup extends Component{
                     type="password"
                     onChange={this.onChange}
                     value={signup.password2}
-                    placeholder="Repite tu Password" 
+                    placeholder="Repite tu password" 
                     />    
                 </p>   
                 <Button loading={loading} type="primary" htmlType="submit" >Registrarme</Button>
